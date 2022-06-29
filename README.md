@@ -8,7 +8,7 @@
 - Wrap project into docker-compose
 - Added new run-command "ensure_adminuser": gives opportunity to avoid user creation error "CommandError: Error: 
 That username is already taken.". Before creation, it checks of exists given username. 
-Mostly be useful in docker-compose running way, cause all environment variables were sat in config/.env.prod file.   
+Mostly be useful in multiple running of docker-compose, and cause all environment variables were sat in config/.env.prod file.  
 
 ## Setup and run:
 - clone repository on your local machine: `git clone https://github.com/Ilnur786/django-tutorial.git`
