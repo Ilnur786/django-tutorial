@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: mysite.dockerfile
-    command: bash -c "python /app/manage.py migrate && python manage.py ensure_adminuser && python /app/manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py migrate && python manage.py ensure_adminuser && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./mysite:/app
     ports:
