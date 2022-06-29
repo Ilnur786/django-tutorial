@@ -5,6 +5,7 @@
 ## My realisation of tutorial project has some features:
 - I used PostgreSQL as db-driver
 - Made a wider test module
+- Wrap project into docker-compose
 
 ## Setup and run:
 - clone repository on your local machine: git clone https://github.com/Ilnur786/django-tutorial.git
@@ -12,4 +13,12 @@
 - open mysite directory
 - run project: python manage.py runserver
 
-### Project was created and tested on Windows 10 (python 3.8.0)
+### Project was created on Windows10 (Python 3.8)
+
+## Setup and run docker-compose:
+- clone repository on your local machine: git clone https://github.com/Ilnur786/django-tutorial.git
+- be sure that you have install docker and docker-compose
+- setup fields in config/.env.prod if it required (optional)
+- run command in project root folder: sudo docker-compose --env-file ./config/.env.prod up
+
+### Project was tested on WSL2 (Ubuntu 20.04)
