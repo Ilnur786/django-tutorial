@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+
+  database:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${user_name}
+      POSTGRES_PASSWORD: ${password}
+      POSTGRES_DB: ${db_name}
+    restart: always
+
+  mysite:
+    build:
+      context: .
+      dockerfile: mysite.dockerfile
+    command: bash -c "python /app/manage.py migrate && python manage.py createsuperuser --noinput && python /app/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./mysite:/app
+    ports:
+      - "8000:8000"
+    environment:
+      POSTGRES_USER: ${user_name}
+      POSTGRES_PASSWORD: ${password}
+      POSTGRES_DB: ${db_name}
+      DJANGO_SUPERUSER_EMAIL: ${admin_email}
+      DJANGO_SUPERUSER_PASSWORD: ${admin_password}
+      DJANGO_SUPERUSER_USERNAME: ${admin_username}
+    depends_on:
+      - database
+    restart: always
