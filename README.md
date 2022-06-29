@@ -20,5 +20,7 @@
 - be sure that you have install docker and docker-compose
 - setup fields in config/.env.prod if it required (optional)
 - run command in project root folder: sudo docker-compose --env-file ./config/.env.prod up
+### Default username: admin
+### Default password: 1234
 
 ### Project was tested on WSL2 (Ubuntu 20.04)
